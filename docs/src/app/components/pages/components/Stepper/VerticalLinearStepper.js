@@ -78,6 +78,17 @@ class VerticalLinearStepper extends React.Component {
                 you're willing to spend on clicks and conversions, which networks
                 and geographical locations you want your ads to show on, and more.
               </p>
+
+                <div style={{position: 'relative', height: '23px', backgroundColor: 'lightblue'}}
+                  onClick={(e) => { this.refs.overflowContent.style.display = 'block'; }}
+                >
+                  Press me to open!
+                  <div style={{position: 'relative', display: 'none', height: '400px', backgroundColor: 'teal', zIndex:'1001'}} ref="overflowContent"
+                    onClick={(e) => { this.refs.overflowContent.style.display = 'none'; e.stopPropagation(); }}
+                  >
+                    Press to close
+                  </div>
+                </div>
               {this.renderStepActions(0)}
             </StepContent>
           </Step>

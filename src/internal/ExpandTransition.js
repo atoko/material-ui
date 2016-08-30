@@ -57,7 +57,7 @@ class ExpandTransition extends Component {
 
     const mergedRootStyles = Object.assign({}, {
       position: 'relative',
-      overflow: 'hidden',
+      overflow: open ? 'visible' : 'hidden',
       height: '100%',
     }, style);
 

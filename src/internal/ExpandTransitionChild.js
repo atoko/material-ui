@@ -68,6 +68,7 @@ class ExpandTransitionChild extends Component {
     const {style} = ReactDOM.findDOMNode(this);
     style.transitionDuration = 0;
     style.height = 'auto';
+    style.overflow = 'visible';
   }
 
   open() {
