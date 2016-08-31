@@ -7,6 +7,12 @@ import Paper from '../Paper';
 import throttle from 'lodash/throttle';
 import PopoverAnimationDefault from './PopoverAnimationDefault';
 
+const styles = {
+  root: {
+    display: 'none',
+  },
+};
+
 class Popover extends Component {
   static propTypes = {
     /**
@@ -130,10 +136,13 @@ class Popover extends Component {
         });
       } else {
         if (nextProps.animated) {
+          if (this.timeout !== null) return;
           this.setState({closing: true});
           this.timeout = setTimeout(() => {
             this.setState({
               open: false,
+            }, () => {
+              this.timeout = null;
             });
           }, 500);
         } else {
@@ -150,8 +159,13 @@ class Popover extends Component {
   }
 
   componentWillUnmount() {
-    clearTimeout(this.timeout);
+    if (this.timeout) {
+      clearTimeout(this.timeout);
+      this.timeout = null;
+    }
   }
+
+  timeout = null;
 
   renderLayer = () => {
     const {
@@ -348,7 +362,7 @@ class Popover extends Component {
 
   render() {
     return (
-      <div style={{display: 'none'}}>
+      <div style={styles.root}>
         <EventListener
           target="window"
           onScroll={this.handleScroll}

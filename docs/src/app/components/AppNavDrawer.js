@@ -1,6 +1,6 @@
 import React, {Component, PropTypes} from 'react';
 import Drawer from 'material-ui/Drawer';
-import {List, ListItem, MakeSelectable} from 'material-ui/List';
+import {List, ListItem, makeSelectable} from 'material-ui/List';
 import Divider from 'material-ui/Divider';
 import Subheader from 'material-ui/Subheader';
 import DropDownMenu from 'material-ui/DropDownMenu';
@@ -8,7 +8,7 @@ import MenuItem from 'material-ui/MenuItem';
 import {spacing, typography, zIndex} from 'material-ui/styles';
 import {cyan500} from 'material-ui/styles/colors';
 
-const SelectableList = MakeSelectable(List);
+const SelectableList = makeSelectable(List);
 
 const styles = {
   logo: {
@@ -158,7 +158,7 @@ class AppNavDrawer extends Component {
             primaryTogglesNestedList={true}
             nestedItems={[
               <ListItem primaryText="Themes" value="/customization/themes" />,
-              <ListItem primaryText="Inline Styles" value="/customization/inline-styles" />,
+              <ListItem primaryText="Styles" value="/customization/styles" />,
               <ListItem primaryText="Colors" value="/customization/colors" />,
             ]}
           />
